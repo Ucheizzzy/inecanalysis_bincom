@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Results;
 use App\Models\PollingUnit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class PollingUnitController extends Controller
@@ -40,5 +42,36 @@ class PollingUnitController extends Controller
 	    ->get();
         // dd($polling_results);
         return response()->json($polling_results);
+    }
+
+    public function newresults(){
+        $pol_name = DB::table('polling_unit')->orderBy('polling_unit_id', 'DESC')->get();
+        $parties = DB::table('party')->orderBy('partyid', 'DESC')->get();
+        return view('new_results', compact('pol_name', 'parties'));
+    }
+
+    public function storeresults(Request $request){
+        $request->validate([
+            'pol' =>'required',
+            'party'=>'required',
+            'result' =>'required',
+        ],[
+            'pol.required' =>'Kindly select a polling unit',
+            'party.required' =>'Kindly select a party',
+            'result.required' =>'Enter a result for this party',
+        ]);
+        Results::insert([
+            'polling_unit' => $request->pol,
+            'party' => $request->party,
+            'result' => $request->result,
+            'created_at' => Carbon::now(),
+        ]);
+        $notification = array(
+			'message' => 'Result Inserted Successfully',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->back()->with($notification);
+
     }
 }

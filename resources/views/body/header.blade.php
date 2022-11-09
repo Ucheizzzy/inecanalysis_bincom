@@ -2,8 +2,8 @@
     <header class="container" id="nav">
         <div class="row">
             <div class="col-md-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="{{url('/')}}">INEC-BINCOM</a>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="{{url('/')}}" style="margin-right: 200px">INEC-BINCOM</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -17,7 +17,7 @@
                         </li>
                     
                         <li class="nav-item">
-                        <a class="nav-link" href="#" >New Parties Results</a>
+                        <a class="nav-link" href="{{route('new_results')}}" >New Parties Results</a>
                         </li>
                     </ul>
                     </div>

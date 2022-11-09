@@ -77,7 +77,7 @@ LGA Polling Unit Results
                           $.each(data, function(key, value){
                             // console.log(value);
                             if(value.count == null){
-                                $('#results').html('<p style="color:red"> No Record for this Polling Unit</p>');
+                                $('#results').html('<p style="color:red">N/A</p>');
                             }else{
                                  $('#results').html('<p value="'+ value.result_id +'">' + value.count + '</p>');
                             }

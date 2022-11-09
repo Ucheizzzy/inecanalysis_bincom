@@ -22,8 +22,13 @@ Route::get('/', function () {
 Route::controller(PollingUnitController::class)->group(function(){
     Route::get('/polling/results', 'pollingresults')->name('polling.results');
     Route::get('/lga/results', 'lgaresults')->name('lga.results');
+    Route::get('/new/results', 'newresults')->name('new_results');
 
     // polling unit ajax url
     Route::get('/lgas/polling_unit/ajax/{lga}', 'pollingAjax');
     Route::get('/results/polling_unit/ajax/{polling}', 'ResultsAjax');
+
+    Route::post('/store/result', 'storeresults')->name('store.result');
+
+
 });

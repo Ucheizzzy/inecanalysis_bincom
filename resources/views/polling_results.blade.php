@@ -9,10 +9,10 @@ Polling Unit Results By Party
     <section class="container">
      <div class="row">
 
-     <h3 class="text-center mt-3">Welcome to the page where you will find all results based on the polling units of LGA's in Delta State<h1>
+     <h3 class="text-center mt-3">Welcome to the page where you will find all results based on the polling units of LGA's in Delta State</h3>
       <div class="col-md-12">
         <table class="table table-bordered table-stripped fs-100">
-         <thead>
+         <thead class="bg-success text-white">
            <tr>
             <th>S/N</th>
             <th>Polling Unit Name</th>
