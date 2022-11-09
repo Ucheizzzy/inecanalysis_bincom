@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('pagetitle')
-INEC | Home
+INEC | Home page
     
 @endsection
 @section('content')
