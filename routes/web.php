@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('master');
+    return view('index');
 });
 
 // All Polling Unit controller
@@ -24,5 +24,6 @@ Route::controller(PollingUnitController::class)->group(function(){
     Route::get('/lga/results', 'lgaresults')->name('lga.results');
 
     // polling unit ajax url
-    Route::get('/lgas/polling_unit/ajax/lga', 'pollingAjax');
+    Route::get('/lgas/polling_unit/ajax/{lga}', 'pollingAjax');
+    Route::get('/results/polling_unit/ajax/{polling}', 'ResultsAjax');
 });

@@ -29,8 +29,16 @@ class PollingUnitController extends Controller
 
     public function pollingAjax($lga){
         $polling_unit = DB::table('polling_unit')->where('polling_unit.lga_id', $lga)
-        ->join('lga', 'polling_unit.lga_id', '=', 'lga.lga_id')->get();
+        ->get();
+        // dd($polling_unit);
+        return response()->json($polling_unit);
+    }
 
-        return json_encode($polling_unit);
+     public function ResultsAjax($polling){
+     $polling_results = DB::table('announced_pu_results')->where('announced_pu_results.polling_unit_uniqueid',$polling)
+      ->select(DB::raw("SUM(announced_pu_results.party_score) as count"))
+	    ->get();
+        // dd($polling_results);
+        return response()->json($polling_results);
     }
 }
